@@ -1,0 +1,49 @@
+
+.header-list h3{
+    color: rgb(57, 158, 57);
+}
+
+.header-list button{
+    transition-duration: 0.4s;
+    background-color: #4CAF50;
+    padding: 4px 16px;
+    border-radius: 8px;
+    color: white;
+
+}
+
+.header-list button:hover {
+    background-color: #555555;
+    border: 2px solid #4CAF50;
+    color: white;
+    padding: 15px 32px;
+    border-radius: 8px;
+    
+} 
+
+
+
+.header-list {
+    background-color:#E9EEF6;
+    padding-top:50px;
+    text-align: center;
+    height: 200px;
+    width: 100%;
+    
+    
+    
+    }
+
+    .form-grouping{
+        
+        padding: 5px;
+    }
+
+    form{
+        background-color: #f6e9e9;
+
+    }
+    textarea{
+        width: 50%;
+        height: 100px;
+    }
