@@ -35,7 +35,7 @@ const CreateTask = ({modal, toggle, save}) => {
   return (
     <div>
       
-      <Modal isOpen={modal} toggle={toggle}>
+      <Modal isOpen={modal} toggle={toggle} style={{width: '250px'}}>
             <ModalHeader toggle={toggle}>Create List</ModalHeader>
             <ModalBody >
 
