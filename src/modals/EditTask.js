@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState , useEffect} from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
-const CreateTaskPopup = ({modal, toggle, save}) => {
+const EditTaskPopup = ({modal, toggle, updateTask, taskObj}) => {
     const [taskName, setTaskName] = useState('');
     const [description, setDescription] = useState('');
 
@@ -18,37 +18,41 @@ const CreateTaskPopup = ({modal, toggle, save}) => {
 
     }
 
-    const handleSave = (e) => {
-        e.preventDefault()
-        let taskObj = {}
-        taskObj["Name"] = taskName
-        taskObj["Description"] = description
-        save(taskObj)
+    useEffect(() => {
+        setTaskName(taskObj.Name)
+        setDescription(taskObj.Description)
+    },[])
 
+    const handleUpdate = (e) => {
+        e.preventDefault();
+        let tempObj = {}
+        tempObj['Name'] = taskName
+        tempObj['Description'] = description
+        updateTask(tempObj)
     }
 
     return (
         <Modal isOpen={modal} toggle={toggle} style={{width: '250px'}}>
-            <ModalHeader toggle={toggle}>Create Task</ModalHeader>
+            <ModalHeader toggle={toggle}>Update Task</ModalHeader>
             <ModalBody>
             
                     <div className = "form-group">
                         <label>Task Name</label>
-                        <input type="text"  value = {taskName} onChange = {handleChange} name = "taskName"/>
+                        <input type="text" value = {taskName} onChange = {handleChange} name = "taskName"/>
                     </div>
                     <div className = "form-group">
                         <label>Description</label>
                         <br></br>
-                        <textarea  value = {description} onChange = {handleChange} name = "description"></textarea>
+                        <textarea value = {description} onChange = {handleChange} name = "description"></textarea>
                     </div>
                 
             </ModalBody>
             <ModalFooter>
-            <Button color="primary" outline size='sm' onClick={handleSave}>Create</Button>{' '}
-            <Button color="danger" size='normal' onClick={toggle}>Withdraw</Button>
+            <Button color="primary" onClick={handleUpdate}>Update</Button>{' '}
+            <Button color="secondary" onClick={toggle}>Cancel</Button>
             </ModalFooter>
       </Modal>
     );
 };
 
-export default CreateTaskPopup;
+export default EditTaskPopup;
