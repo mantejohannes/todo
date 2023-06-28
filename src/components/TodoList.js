@@ -10,11 +10,6 @@ const TodoList = () => {
 
 
 
-
-
-
-
-
     
     useEffect(() => {
       let arr = localStorage.getItem("activityList")
@@ -35,6 +30,18 @@ const TodoList = () => {
       window.location.reload()
 
     }
+
+    const updateListArray = (obj, index) => {
+
+      let tempList = activityList
+      tempList[index] = obj
+      localStorage.setItem("activityList", JSON.stringify(tempList))
+
+      setActivityList(tempList)
+      window.location.reload()
+
+    }
+
 
     const toggle = () =>{
 
@@ -60,7 +67,7 @@ const TodoList = () => {
 
         </div>
         <div className='task-container'>
-          {activityList && activityList.map((obj, index) => <Card activityObj = {obj} index = {index} deleteActivity={deleteActivity}/> )}
+          {activityList && activityList.map((obj, index) => <Card activityObj = {obj} index = {index} deleteActivity={deleteActivity} updateListArray={updateListArray}/> )}
 
         </div>
 

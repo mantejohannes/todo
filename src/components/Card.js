@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
+import EditActivity from "../modals/EditActivity";
 
-const Card = ({activityObj, index, deleteActivity}) => {
+const Card = ({activityObj, index, deleteActivity, updateListArray}) => {
+
+    const [modal, setModal] = useState(false);
 
     const colors = [
         {
@@ -25,6 +28,14 @@ const Card = ({activityObj, index, deleteActivity}) => {
         }
     ]
 
+    const toggle = () => {
+        setModal(!modal);
+    }
+
+    const updateActivity = (obj) => {
+        updateListArray(obj, index)
+    }
+
     const handleDelete = () => {
 
             deleteActivity(index)
@@ -32,17 +43,18 @@ const Card = ({activityObj, index, deleteActivity}) => {
 
     return(
 
-        <div className = "card-wrapper">
+        <div className = "card-wrapper mr-5">
             <div className = "card-top" style={{"background-color": colors[index%5].primaryColor}}></div>
             <div className = "task-holder">
                 <span className = "card-header" style={{"background-color": colors[index%5].secondaryColor, "border-radius": "10px"}}>{activityObj.Name}</span>
                 <p className="explanation-class">{activityObj.Explanation}</p>
 
                 <div style={{"position": "absolute", "right" : "20px", "bottom" : "20px"}}>
-                    <i className = "far fa-edit" style={{"color" : colors[index%5].primaryColor,  "cursor" : "pointer"}}></i>
+                    <i className = "far fa-edit mr-3" style={{"color" : colors[index%5].primaryColor,  "cursor" : "pointer"}} onclick ={() => setModal(true)}></i>
                     <i className="fas fa-trash-alt" style = {{"color" : colors[index%5].primaryColor, "cursor" : "pointer"}} onClick={handleDelete}></i>
                 </div>
             </div>
+            <EditActivity modal = {modal} toggle = {toggle} updateActivity = {updateActivity} activityObj={activityObj}/>
         </div>
     );
 
