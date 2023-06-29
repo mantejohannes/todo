@@ -1,4 +1,6 @@
 import './App.css';
+
+
 import TodoList from './components/TodoList'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'font-awesome/css/font-awesome.min.css'
@@ -14,6 +16,7 @@ import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 function App() {
   return (
 
+    <div className='mainstream' >
     <Router>
     <div>
       <nav>
@@ -53,7 +56,7 @@ function App() {
   
 
 
-    
+  </div>
 
   );
 }
