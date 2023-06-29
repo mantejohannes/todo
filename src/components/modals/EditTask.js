@@ -36,11 +36,16 @@ const EditTaskPopup = ({modal, toggle, updateTask, taskObj}) => {
             <ModalHeader toggle={toggle}>Update Task</ModalHeader>
             <ModalBody>
             
-                    <div className = "form-group">
+                    <div className = "form-group2">
+
+                    <div className='image'>
+            <img className='picture' src="https://timewellscheduled.com/wp-content/uploads/2019/08/edit2.png"  alt="logo"/>
+            </div>
+            <br></br>
                         <label>Task Name</label>
                         <input type="text" value = {taskName} onChange = {handleChange} name = "taskName"/>
                     </div>
-                    <div className = "form-group">
+                    <div className = "form-group2">
                         <label>Description</label>
                         <br></br>
                         <textarea value = {description} onChange = {handleChange} name = "description"></textarea>

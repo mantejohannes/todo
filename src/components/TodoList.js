@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import CreateTask from '../modals/CreateTask'
+import CreateTask from './modals/CreateTask'
 import './Style.css';
 import Card from './Card';
 
@@ -48,16 +48,20 @@ const TodoList = () => {
 
 
     return (
-        <>
+        <div className='main'>
             <div className = "header text-center">
                 <h2>Todo List App</h2>
-                <button onClick = {() => setModal(true)} >Create Task</button>
+                <button onClick = {() => setModal(true)} >Add Task</button>
             </div>
             <div className = "task-container">
             {taskList && taskList.map((obj , index) => <Card taskObj = {obj} index = {index} deleteTask = {deleteTask} updateListArray = {updateListArray}/> )}
             </div>
             <CreateTask toggle = {toggle} modal = {modal} save = {saveTask}/>
-        </>
+
+            
+            
+
+        </div>
     );
 };
 

@@ -28,12 +28,18 @@ const CreateTaskPopup = ({modal, toggle, save}) => {
     }
 
     return (
-        <Modal isOpen={modal} toggle={toggle} style={{width: '250px'}}>
-            <ModalHeader toggle={toggle}>Create Task</ModalHeader>
+        <Modal isOpen={modal} toggle={toggle} style={{width: '270px'}}>
+            <ModalHeader toggle={toggle}>Add Task</ModalHeader>
             <ModalBody>
             
                     <div className = "form-group">
+
+                    <div className='image'>
+            <img className='picture' src="https://wallpaperaccess.com/full/2593673.jpg"  alt="logo"/>
+            </div>
+            <br></br>
                         <label>Task Name</label>
+                        <br></br>
                         <input type="text"  value = {taskName} onChange = {handleChange} name = "taskName"/>
                     </div>
                     <div className = "form-group">
@@ -44,7 +50,7 @@ const CreateTaskPopup = ({modal, toggle, save}) => {
                 
             </ModalBody>
             <ModalFooter>
-            <Button color="primary" outline size='sm' onClick={handleSave}>Create</Button>{' '}
+            <Button color="primary" outline size='sm' onClick={handleSave}>Add</Button>{' '}
             <Button color="danger" size='normal' onClick={toggle}>Withdraw</Button>
             </ModalFooter>
       </Modal>
