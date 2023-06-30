@@ -1,104 +1,126 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
+import axios from 'axios'; 
+import { useNavigate } from "react-router-dom";
 
-export default function Form() {
+const Register = () => {
+	//const navigate = useNavigate();
 
-	// States for registration
-	const [name, setName] = useState('');
-	const [email, setEmail] = useState('');
-	const [password, setPassword] = useState('');
+	const [input,setInput] = useState({
+		name : "",
+		email : "",
+		password : "",
+	})
 
-	// States for checking the errors
-	const [submitted, setSubmitted] = useState(false);
-	const [error, setError] = useState(false);
-
-	// Handling the name change
-	const handleName = (e) => {
-		setName(e.target.value);
-		setSubmitted(false);
-	};
-
-	// Handling the email change
-	const handleEmail = (e) => {
-		setEmail(e.target.value);
-		setSubmitted(false);
-	};
-
-	// Handling the password change
-	const handlePassword = (e) => {
-		setPassword(e.target.value);
-		setSubmitted(false);
-	};
-
-	// Handling the form submission
+	//storing values in local storage
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		if (name === '' || email === '' || password === '') {
-			setError(true);
-		} else {
-			setSubmitted(true);
-			setError(false);
-		}
-	};
+		localStorage.setItem("user",JSON.stringify (input));
+		//navigate("login")
+		 
+	}
 
-	// Showing success message
-	const successMessage = () => {
-		return (
-			<div
-				className="success"
-				style={{
-					display: submitted ? '' : 'none',
-				}}>
-				<h1>User {name} successfully registered!!</h1>
+  return (
+    <>
+
+     <section>
+		
+		<div className='container h-100'>
+			<div className='row d-flex justify-content-center align-items-center h-100'>
+				<div className='card' style={{borderRadius: "15px"}}>
+					<div className='card-body p-5'>
+						<h2 className='text-uppercase text-center mb-5'>
+							Create an account
+						</h2>
+
+						<form onSubmit={handleSubmit}>
+							<div className='form-outline mb-4'>
+								<input
+									name='name'
+									value={input.name}
+									onChange={(e) =>setInput({...input,[e.target.name] : e.target.value })}
+									type='text'
+									id='form3Examples1cg'
+									className='form-control form-control-lg'
+								/>
+								<label className='form-label' htmlFor="form3Examples1cg">
+									Your Name
+								</label>
+							
+							</div>
+							<div className='form-outline mb-4'>
+								<input
+									name='email'
+									value={input.email}
+									onChange={(e) =>setInput({...input,[e.target.name] : e.target.value })}
+									type='text'
+									id='form3Examples1cg'
+									className='form-control form-control-lg'
+								/>
+								<label className='form-label' htmlFor="form3Examples1cg">
+									Your Email
+								</label>
+							</div>
+
+							<div className='form-outline mb-4'>
+								<input
+									name='password'
+									value={input.password}
+									onChange={(e) =>setInput({...input,[e.target.name] : e.target.value })}
+									
+									type='text'
+									id='form3Examples1cg'
+									className='form-control form-control-lg'
+								/>
+								<label className='form-label' htmlFor="form3Examples1cg">
+									Password
+								</label>
+							</div>
+
+							<div className='d-flex justify-content-center'> 
+								<button
+									type='submit'
+									className='btn btn-success btn-block btn-lg gradient-custom-4 text-body text-white'
+									>
+									Register
+								</button>
+							
+							</div>
+
+							<p className='text-center text-muted mt-5 mb-0'>
+								Have an account already?
+								<a href='/login' className='fw-bold text-body'>
+									<u>Login Here</u>
+								</a>
+							</p>
+
+
+						</form>
+
+					</div>
+
+
+
+				</div>
+
+
+
+
 			</div>
-		);
-	};
 
-	// Showing error message if error is true
-	const errorMessage = () => {
-		return (
-			<div
-				className="error"
-				style={{
-					display: error ? '' : 'none',
-				}}>
-				<h1>Please enter all the fields</h1>
-			</div>
-		);
-	};
 
-	return (
-		<div className="form">
-			<div>
-        <br></br>
-				<h1>User Registration</h1>
-        <br></br>
-			</div>
 
-			{/* Calling to the methods */}
-			<div className="messages">
-				{errorMessage()}
-				{successMessage()}
-			</div>
 
-			<form>
-				{/* Labels and inputs for form data */}
-				<label className="label">Name</label>
-				<input onChange={handleName} className="input"
-					value={name} type="text" />
-
-				<label className="label">Email</label>
-				<input onChange={handleEmail} className="input"
-					value={email} type="email" />
-
-				<label className="label">Password</label>
-				<input onChange={handlePassword} className="input"
-					value={password} type="password" />
-
-				<button onClick={handleSubmit} className="btn"
-						type="submit">
-					Submit
-				</button>
-			</form>
 		</div>
-	);
-}
+
+
+
+
+		
+    </section>
+
+
+	</>
+  );
+};
+
+export default Register;
