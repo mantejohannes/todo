@@ -1,4 +1,12 @@
+.nav-item{
+  background-color: rgb(187, 174, 174);
+  align-items: center;
+  text-align: center;
+  padding: 10px;
+  border: 10px;
+  list-style-type: none;
 
+}
 
 
 

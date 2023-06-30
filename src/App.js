@@ -22,8 +22,26 @@ function App() {
     <>
         <Router>
     <div>
-      
 
+      <nav>
+      <li className="nav-item">
+                <Link className="nav-link active" aria-current="page" to="/">Home</Link>
+     </li>
+
+     <li className="nav-item">
+                <Link className="nav-link active" aria-current="page" to="/login">Login</Link>
+     </li>
+
+
+     <li className="nav-item">
+                <Link className="nav-link active" aria-current="page" to="/register">Register</Link>
+     </li>
+
+
+      </nav>
+      
+<br></br>
+<br></br>
       <Switch>
         <Route path="/login">
           <Login />
