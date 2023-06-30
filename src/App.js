@@ -8,6 +8,7 @@ import Register from './components/pages/Register';
 import Login from './components/pages/Login';
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import Home from './components/pages/Home';
+import Navbar from './components/Layout/Navbar';
 
 
 
@@ -22,23 +23,8 @@ function App() {
     <>
         <Router>
     <div>
-
-      <nav>
-      <li className="nav-item">
-                <Link className="nav-link active" aria-current="page" to="/">Home</Link>
-     </li>
-
-     <li className="nav-item">
-                <Link className="nav-link active" aria-current="page" to="/login">Login</Link>
-     </li>
-
-
-     <li className="nav-item">
-                <Link className="nav-link active" aria-current="page" to="/register">Register</Link>
-     </li>
-
-
-      </nav>
+    <Navbar/>
+      
       
 <br></br>
 <br></br>
