@@ -46,3 +46,7 @@
     transform: rotate(360deg);
   }
 }
+
+.section-login{
+  background-color: rgb(97, 97, 224);
+}
