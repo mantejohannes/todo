@@ -16,9 +16,16 @@ const Login = () => {
       if(input.email === loggeduser.email && input.password === loggeduser.password)
 
       {
-
+        localStorage.set("loggedin", true)
+       // navigate("/")
       }
-		//navigate("login")
+
+      else { alert("wrong Email or Password");
+    }
+       
+      
+
+		
 		 
 	}
 

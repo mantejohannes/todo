@@ -15,7 +15,7 @@ const Register = () => {
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		localStorage.setItem("user",JSON.stringify (input));
-		//navigate("login")
+		//navigate("/login")
 		 
 	}
 
